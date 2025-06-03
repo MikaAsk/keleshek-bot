@@ -1,5 +1,6 @@
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
+from telegram.ext import filters
 
 # Приветствие при /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -371,10 +372,10 @@ app.add_handler(MessageHandler(filters.TEXT & filters.Regex("😟 Я трево�
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🤯 Я не справляюсь / перегруз"), support_overload))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🙍‍♂️ У меня не получается"), support_failure))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🤔 Я не уверен(а) в себе"), support_confidence))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🤝 Истории успеха"), success_stories))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🛠 Навыки будущего"), future_skills))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("👩‍💻 Стажировки"), internships_info))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("👨‍🏫 Консультант"), consultant))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^🤝 Истории успеха$"), success_stories))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^🛠 Навыки будущего$"), future_skills))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^👩‍💻 Стажировки$"), internships_info))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^👨‍🏫 Консультант$"), consultant))
 
 
 # Запуск
