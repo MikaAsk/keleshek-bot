@@ -376,8 +376,9 @@ app.add_handler(MessageHandler(filters.TEXT & filters.Regex("📩 Связать
 
 app.add_handler(MessageHandler(filters.TEXT & filters.Text(["🤝 Истории успеха"]), success_stories))
 app.add_handler(MessageHandler(filters.TEXT & filters.Text(["🛠 Навыки будущего"]), future_skills))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^👩‍💻 Стажировки$"), internships_info))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex(".*Стажировки.*"), internships_info))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex(".*Консультант.*"), consultant))
+
 
 
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, collect_feedback))
