@@ -320,6 +320,7 @@ async def internships_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def consultant(update: Update, context: ContextTypes.DEFAULT_TYPE):
+        print("✅ consultant triggered")
     text = (
         "👨‍🏫 *Консультант по профориентации*\n\n"
         "Ты можешь связаться с нашим специалистом и получить индивидуальную консультацию.\n\n"
@@ -356,7 +357,8 @@ app.add_handler(MessageHandler(filters.TEXT & filters.Regex("📩 Связать
 app.add_handler(MessageHandler(filters.TEXT & filters.Text(["🤝 Истории успеха"]), success_stories))
 app.add_handler(MessageHandler(filters.TEXT & filters.Text(["🛠 Навыки будущего"]), future_skills))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^👩‍💻 Стажировки$"), internships_info))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^👨‍🏫 Консультант$"), consultant))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("👨‍🏫 Консультант"), consultant))
+
 
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, collect_feedback))
 
