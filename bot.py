@@ -320,15 +320,16 @@ async def internships_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def consultant(update: Update, context: ContextTypes.DEFAULT_TYPE):
-        print("✅ consultant triggered")
+    print("✅ consultant triggered")
     text = (
-        "👨‍🏫 *Консультант по профориентации*\n\n"
+        "🧑‍🏫 *Консультант по профориентации*\n\n"
         "Ты можешь связаться с нашим специалистом и получить индивидуальную консультацию.\n\n"
         "📩 Напиши: @keleshek_consultant\n"
         "🕒 Доступен по будням с 10:00 до 18:00\n\n"
         "💬 Не бойся задавать любые вопросы!"
     )
     await update.message.reply_text(text, parse_mode="Markdown")
+
 
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("menu", menu))
