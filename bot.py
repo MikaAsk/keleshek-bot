@@ -371,18 +371,10 @@ app.add_handler(MessageHandler(filters.TEXT & filters.Regex("😟 Я трево�
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🤯 Я не справляюсь / перегруз"), support_overload))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🙍‍♂️ У меня не получается"), support_failure))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🤔 Я не уверен(а) в себе"), support_confidence))
-# Истории успеха
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🤝 Истории успеха"), success_stories))
-
-# Календарь событий
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("📅 Календарь событий"), events_calendar))
-
-# Навыки будущего
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🛠 Навыки будущего"), future_skills))
-
-# Стажировки
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("👩‍💻 Стажировки"), internships_info))
-
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("👩‍💻 Стажировки"), internships))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("👨‍🏫 Консультант"), consultant_contact))
 
 # Запуск
 app.run_polling()
