@@ -372,11 +372,12 @@ app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🤯 Я не спр
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🙍‍♂️ У меня не получается"), support_failure))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🤔 Я не уверен(а) в себе"), support_confidence))
 # Добавьте эти строки перед app.run_polling()
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^🆘 Поддержка$"), support_menu))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^🤝 Истории успеха$"), success_stories))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^🛠 Навыки будущего$"), future_skills)) 
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^📅 Календарь событий$"), events_calendar))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^🛠 Навыки будущего$"), future_skills))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^👩‍💻 Стажировки$"), internships_info))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^👨‍🏫 Консультант$"), consultant))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("^🆘 Поддержка$"), support_menu))
 
 
 # Запуск
