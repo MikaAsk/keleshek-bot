@@ -59,7 +59,7 @@ async def guide(update: Update, context: ContextTypes.DEFAULT_TYPE):
 def main_menu():
     keyboard = [
         ["💡 Как пользоваться сайтом", "ℹ️ Советы"],
-        ["📬 Обратная связь", "🧠 Поддержка"],
+        ["📬 Обратная связь", "🆘Поддержка"],
         ["🤝 Истории успеха", "📅 Календарь событий"],
         ["🛠 Навыки будущего", "👩‍💻 Стажировки"],
         ["👨‍🏫 Консультант"]
@@ -254,7 +254,7 @@ app.add_handler(MessageHandler(filters.TEXT & filters.Regex("✍️ Остави
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🐞 Сообщить об ошибке"), report_bug))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("📩 Связаться с поддержкой"), support_message))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, collect_feedback))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🧠 Поддержка"), support_menu))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🆘Поддержка"), support_menu))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("😟 Я тревожусь о будущем"), support_future))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🤯 Я не справляюсь / перегруз"), support_overload))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🙍‍♂️ У меня не получается"), support_failure))
