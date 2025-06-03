@@ -373,8 +373,9 @@ app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🙍‍♂️ У м
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🤔 Я не уверен(а) в себе"), support_confidence))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🤝 Истории успеха"), success_stories))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🛠 Навыки будущего"), future_skills))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("👩‍💻 Стажировки"), internships))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("👨‍🏫 Консультант"), consultant_contact))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("👩‍💻 Стажировки"), internships_info))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("👨‍🏫 Консультант"), consultant))
+
 
 # Запуск
 app.run_polling()
