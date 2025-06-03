@@ -346,48 +346,40 @@ async def consultant(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
     await update.message.reply_text(text, parse_mode="Markdown")
 
+app.add_handler(CommandHandler("start", start))
+app.add_handler(CommandHandler("menu", menu))
+app.add_handler(CommandHandler("help", help_command))
 
-# Добавь в список обработчиков
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("👩‍💻 Стажировки"), internships_info))
-
-
-# Добавь в список обработчиков
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("📅 Календарь событий"), events_calendar))
-
-
-# Обработчики сообщений
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("💡 Как пользоваться сайтом"), guide))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("📅 Календарь событий"), events_calendar))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🔙 Назад"), back_to_main))
+
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("ℹ️ Советы"), tips_menu))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("📌 Как выбрать профессию"), tip_profession))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🎧 Как эффективно учиться"), tip_learning))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("💼 Как выбрать вуз"), tip_university))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🔙 Назад"), back_to_main))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("📬 Обратная связь"), feedback_menu))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("✍️ Оставить отзыв"), leave_review))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🐞 Сообщить об ошибке"), report_bug))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex("📩 Связаться с поддержкой"), support_message))
+
 app.add_handler(MessageHandler(filters.TEXT & filters.Text(["🆘 Поддержка"]), support_menu))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("😟 Я тревожусь о будущем"), support_future))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🤯 Я не справляюсь / перегруз"), support_overload))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🙍‍♂️ У меня не получается"), support_failure))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🤔 Я не уверен(а) в себе"), support_confidence))
-from telegram.ext import filters
 
-# Для кнопки "Истории успеха"
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("📬 Обратная связь"), feedback_menu))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("✍️ Оставить отзыв"), leave_review))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🐞 Сообщить об ошибке"), report_bug))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("📩 Связаться с поддержкой"), support_message))
+
 app.add_handler(MessageHandler(filters.TEXT & filters.Text(["🤝 Истории успеха"]), success_stories))
-
-# Для кнопки "Навыки будущего"
 app.add_handler(MessageHandler(filters.TEXT & filters.Text(["🛠 Навыки будущего"]), future_skills))
-
-# Для кнопки "Стажировки"
 app.add_handler(MessageHandler(filters.TEXT & filters.Text(["👩‍💻 Стажировки"]), internships_info))
-
-# Для кнопки "Консультант"
 app.add_handler(MessageHandler(filters.TEXT & filters.Text(["👨‍🏫 Консультант"]), consultant))
 
-# Для кнопки "Поддержка"
-
-
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, collect_feedback))
+
+
+
+
+
 # Запуск
 app.run_polling()
