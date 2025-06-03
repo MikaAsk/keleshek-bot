@@ -54,6 +54,7 @@ async def guide(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
     await update.message.reply_text(text, parse_mode="Markdown")
 
+
 # Главное меню в виде клавиатуры
 def main_menu():
     keyboard = [
@@ -187,6 +188,7 @@ async def support_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("🧠 С чем ты сейчас сталкиваешься?", reply_markup=reply_markup)
 
 
+
 async def support_future(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = (
         "😟 *Ты тревожишься о будущем?* Это нормально.\n\n"
@@ -241,6 +243,7 @@ app.add_handler(CommandHandler("menu", menu))
 app.add_handler(CommandHandler("help", help_command))
 
 # Обработчики сообщений
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("💡 Как пользоваться сайтом"), guide))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("ℹ️ Советы"), tips_menu))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("📌 Как выбрать профессию"), tip_profession))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🎧 Как эффективно учиться"), tip_learning))
@@ -251,7 +254,7 @@ app.add_handler(MessageHandler(filters.TEXT & filters.Regex("✍️ Остави
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🐞 Сообщить об ошибке"), report_bug))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("📩 Связаться с поддержкой"), support_message))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, collect_feedback))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex(r"Поддержка$"), support_menu))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🧠 Поддержка"), support_menu))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("😟 Я тревожусь о будущем"), support_future))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🤯 Я не справляюсь / перегруз"), support_overload))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex("🙍‍♂️ У меня не получается"), support_failure))
