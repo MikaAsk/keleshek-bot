@@ -311,7 +311,7 @@ async def future_skills(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 # Ответ на кнопку "стажировка"
-async def internships_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def int(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = (
         "👩‍💻 *Где найти стажировку или первую работу?*\n\n"
         "🔹 *Национальные платформы:*\n"
@@ -336,7 +336,6 @@ async def internships_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def consultant(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    print("✅ consultant triggered")
     text = (
         "🧑‍🏫 *Консультант по профориентации*\n\n"
         "Ты можешь связаться с нашим специалистом и получить индивидуальную консультацию.\n\n"
@@ -379,7 +378,7 @@ app.add_handler(MessageHandler(filters.TEXT & filters.Regex(".*поддержк.
 # Основные разделы
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex(".*Истории успеха.*"), success_stories))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex(".*Навыки будущего.*"), future_skills))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex(".*Стажировки.*"), internships_info))
+app.add_handler(MessageHandler(filters.TEXT & filters.Regex(".*Стажировки.*"), int))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex(".*Консультант.*"), consultant))
 
 # Всё остальное (например, отзыв)
