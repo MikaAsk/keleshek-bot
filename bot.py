@@ -143,9 +143,6 @@ async def feedback_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
     await update.message.reply_text("📬 Выберите тип обратной связи:", reply_markup=reply_markup)
 
-# Задаём ID куда слать сообщения
-MY_TELEGRAM_ID = 123456789  # <-- замени на свой
-
 async def leave_review(update: Update, context: ContextTypes.DEFAULT_TYPE):
     context.user_data["feedback_type"] = "[ОТЗЫВ]"
     await update.message.reply_text("✍️ Напиши свой отзыв — мы передадим его команде!")
@@ -236,7 +233,7 @@ async def support_confidence(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
 
 # Инициализация
-app = ApplicationBuilder().token("7962303221:AAGp35Hvg3tgB0yU0IyJhkCnEKfbndraIJA").build()
+app = ApplicationBuilder().token("7601831924:AAHscYHSLwsPcgVDfneW7E0picV0IuuJQkc").build()
 
 # Обработчики команд
 app.add_handler(CommandHandler("start", start))
