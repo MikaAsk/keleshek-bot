@@ -62,8 +62,7 @@ def main_menu():
         ["💡 Как пользоваться сайтом", "ℹ️ Советы"],
         ["📬 Обратная связь", "🆘 Поддержка"],
         ["🤝 Истории успеха", "📅 Календарь событий"],
-        ["🛠 Навыки будущего", "👩‍💻 Стажировки"],
-        ["👨‍🏫 Консультант"]
+        ["🛠 Навыки будущего"]
     ]
     return ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
 
@@ -309,43 +308,6 @@ async def future_skills(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
     await update.message.reply_text(text, parse_mode="Markdown")
 
-
-# Ответ на кнопку "стажировка"
-async def int(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = (
-        "👩‍💻 *Где найти стажировку или первую работу?*\n\n"
-        "🔹 *Национальные платформы:*\n"
-        "🇰🇿 [Digital Internship – Цифровые стажировки от МЦРИАП РК](https://digitalinternship.kz/)\n"
-        "🇰🇿 [Enbek.kz – портал занятости населения](https://enbek.kz/)\n"
-        "🇰🇿 [JasStar – карьерный портал для молодежи](https://jasstar.kz/)\n\n"
-        "🔹 *Карьера в крупных компаниях:*\n"
-        "🏦 [Kaspi.kz – вакансии и стажировки](https://kaspi.kz/about/vacancies/)\n"
-        "🏢 [BI Group – программа стажировок](https://bi.group/page/internship)\n"
-        "🌍 [KPMG Kazakhstan – карьерные возможности](https://home.kpmg/kz/en/home/careers.html)\n\n"
-        "🔹 *Международные платформы:*\n"
-        "🌐 [LinkedIn Jobs](https://www.linkedin.com/jobs/)\n"
-        "🌐 [Internships.com](https://www.internships.com/)\n\n"
-        "📝 Рекомендации:\n"
-        "— Заведи профиль на LinkedIn и обнови CV\n"
-        "— Подпишись на Telegram-каналы по стажировкам (например, @internship_kz)\n"
-        "— Используй фильтры по городу, направлению и длительности\n\n"
-        "🚀 Начни с малого — и получишь первый оффер быстрее, чем ожидаешь!"
-    )
-    await update.message.reply_text(text, parse_mode="Markdown")
-
-
-
-async def consultant(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = (
-        "🧑‍🏫 *Консультант по профориентации*\n\n"
-        "Ты можешь связаться с нашим специалистом и получить индивидуальную консультацию.\n\n"
-        "📩 Напиши: @keleshek_consultant\n"
-        "🕒 Доступен по будням с 10:00 до 18:00\n\n"
-        "💬 Не бойся задавать любые вопросы!"
-    )
-    await update.message.reply_text(text, parse_mode="Markdown")
-
-
 # Команды
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("menu", menu))
@@ -378,8 +340,7 @@ app.add_handler(MessageHandler(filters.TEXT & filters.Regex(".*поддержк.
 # Основные разделы
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex(".*Истории успеха.*"), success_stories))
 app.add_handler(MessageHandler(filters.TEXT & filters.Regex(".*Навыки будущего.*"), future_skills))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex(".*Стажировки.*"), int))
-app.add_handler(MessageHandler(filters.TEXT & filters.Regex(".*Консультант.*"), consultant))
+
 
 # Всё остальное (например, отзыв)
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, collect_feedback))
